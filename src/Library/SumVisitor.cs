@@ -1,19 +1,11 @@
 namespace Library;
 
-public class SumVisitor: IVisitor
+public class SumVisitor : IVisitor<int>
 {
-    private int sum = 0;
+    public int Total { get; private set; }
 
-    public int Sum
+    public void Visit(Node<int> node)
     {
-        get
-        {
-            return this.sum;
-        }
-    }
-
-    public void Visit(Node node)
-    {
-        sum += node.Number;
+        Total = Total + node.Data;
     }
 }
